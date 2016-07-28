@@ -13,6 +13,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 * 使用`<small>`标签可以设置副标题；
 * 副标题没有加粗、灰色字体并用略小字体紧随标题其后展现；
 ``` html
+	<!-- 标题-->
 	<h1>Bootstrap标题一</h1>
 	<h2>Bootstrap标题二<small>我是副标题</small></h2>
 	<h3>Bootstrap标题三<small>我是副标题</small></h3>
@@ -67,6 +68,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 	* `<dl>`,`<dd>`,`<dt>`：标签和HTML，Bootstrap调整了行间距、外边距、加粗；
 	* `.dl-horizontal`：水平定义列表，在低分辨率时纵向、高分辨率时横向；
 ```
+<!-- 基本列表 -->
 <ul class="list-unstyled">
 	<li>城市：</li>
 	<li>
@@ -94,8 +96,129 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 	* `.table-condensed`:紧凑的表格，单元格内边距比较小；
 	* `<div class="table-responsive">`：响应式表格，放在容器中，宽度较小时容器出现滚动条；
 
+```
+<table class="table table-bordered table-hover">
+```
+
 ## 3. 表单
-### 3.1. 表单布局
+### 3.1. 基本表单
+* 表单定义
+	* 表单使用普通`<form>`表单定义；
+	* 可以使用`role="form"`增强语义；
+	*  标签和表单元素是垂直排列的；
+```
+	<!-- 基本表单 -->
+	<form role="form">
+	</form>
+```
+* 表单元素
+	* `<input>`,`<textarea>`,`<select>`：基本的HTML元素；
+	* `.control-lable`：定义表单类的标签，在内联和水平表单时有额外的样式；
+	* `.form-control`：设置为表单控件的元素将100%宽度、浅灰色边框、4px圆角、阴影效果、焦点变色等效果；
+	* `.form-group`：可以将`label`和表单元素包裹在`div.form-group`中能够获得最好效果；
+```
+	<!-- 基本控件 -->
+	<div class="form-group">
+	    <label for="username">用户名：</label>
+	    <input type="input" class="form-control" id="username">
+	</div>
+```
+### 3.2. 水平表单
+* 表单定义
+	* 在普通表单的`<form>`标签上增加`.form-horizontal`；
+	* 屏幕宽度较小时会变成垂直表单；
+* 表单元素
+	* `<form-group>`相当网格定位的`row`；
+	* `<lable>`需要使用`.col-`列定义类修饰宽度；
+	* `<input>`等需要被`<div>`包裹，并使用`.col-`列定义类修饰宽度；
+```
+<!-- 水平表单 -->
+<form class="form-horizontal">
+	<div class="form-group">
+		<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-10">
+			<input type="email" class="form-control" id="inputEmail3" >
+		</div>
+	</div>
+</form>
+```
+### 3.3. 内联表单
+* 表单定义
+	* 在普通表单的`<form>`标签上增加`.form-inline`；
+	* 表单的控件会在一行之内显示，屏幕宽度较小时会变成垂直表单；
+* 表单元素
+	* 需要指定`<lable>`，可以使用`.sr-only`将其隐藏，节约控空间；
+	* 内联表单的元素宽度为`width:auto`，有时可能需要手动设置；
+```
+<!-- 内联表单 -->
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail2">邮箱</label>
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="请输入你的邮箱地址">
+  </div>
+</form>
+```
+
+### 3.4. 表单控件
+* 基本样式
+	* 使用`<div class="form-group">`包裹修饰排列；
+	* 使用`.form-control`类修饰样式；
+* 控件大小
+	* 高度：使用`.input-sm`和`.input-lg`修饰表单元素；
+	* 宽度：使用网格系统及横向表格`.form-horizontal`，利用`.col-`列定义控制宽度；
+* 控件状态
+	* 焦点状态：用伪类赋予`.box-shadow`；
+	* 禁用状态：给元素增加`disable`属性；也可以给`<fieldset>`增加该属性，禁用所有表单控件；
+* 验证状态
+	* 边框颜色：在`form-group`后增加`.has-success`，`.has-error`，`.has-warning`，会给边框加上对的颜色；
+	* 图标提示：在`form-group`后增加`.has-freeback`，并在input后增加`<span class="glyphicon glyphicon-ok form-control-feedback"></span>`指定需要显示图标；
+* 反馈信息
+	* 可以使用`<span class="help-block"></span>`在输入框底部展示提示信息；
+	* 如果要在一行内显示提示信息需要使用网格系统；
+
+```html
+<!-- 控件状态 -->
+  <div class="form-group has-success has-feedback">
+    <label class="control-label" for="inputSuccess1">成功状态</label>
+    <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+    <span class="help-block">你输入的信息是正确的</span>
+    <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+  </div>
+```
+
+* `<input>` 输入框
+	* `placeholder=xxx`：空白占位符；
+	* `type=input`：普通输入框；
+	* `type=email`：邮件输入框；
+* `<select>` 选择框
+	* 使用`multiple`修饰为多行选择框；
+* `<textarea>` 文本域
+	* 无需设置`cols`，因为`form-control`为100%宽度；
+* `<input type="chcekbox">` 多选框
+	* 需要被`.checkbox`的`<div>`包裹；
+	* 需要被`<lable>`包裹，解决了对齐困难的问题；
+	* 内联时需要使用`.checkbox-inline`，不要被div包裹；
+* `<input type="radio">` 单选框
+	* 需要被`.radio`的`<div>`包裹；
+	* 需要被`<lable>`包裹，解决了对齐困难的问题；
+	* 内联时需要使用`.radio-inline`，不要被div包裹；
+```
+<!-- 单选框和复选框 -->
+<div class="checkbox">
+    <label>
+      <input type="checkbox" value="">
+      记住密码
+    </label>
+</div>
+<div class="radio">
+    <label>
+      <input type="radio" value="" checked>
+      喜欢
+    </label>
+</div>
+```
+### 3.5. 按钮
+
 ## 网络系统
 ## 菜单、按钮及导航
 ## 导航条、分页导航
