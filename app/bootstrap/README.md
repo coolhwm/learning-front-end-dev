@@ -218,10 +218,60 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 </div>
 ```
 ### 3.5. 按钮
+* 基本按钮：可以使用`<button>`,`<input>`,`<a>`标签增加`.btn`定义按钮，推荐使用`<button>`按钮；
+* 按钮风格
+	* `.btn-default`：默认按钮风格；灰色；
+	* `.btn-primary`：主要操作按钮，蓝色；
+	* `.btn-info`：信息按钮，浅蓝色，可以替代默认按钮；
+	* `.btn-success`：表示积极操作，浅绿色；
+	* `.btn-warning`：表示谨慎操作，浅黄色；
+	* `.btn-danger`：表示危险操作，浅红色；
+	* `.btn-link`：链接样式按钮，看起来想一个超链接；
+* 按钮状态
+	* `:hover`：悬浮状态；
+	* `:active`：点击状态；
+	* `:focus`：焦点状态；
+* 禁用按钮
+	* `disabled="disabled`：使用属性禁用，禁用默认行为；
+	* `.disable`：使用类，在低版本IE中不会禁用提交等行为；
+* 按钮大小
+	* `.btn-lg`：大型按钮；
+	* `.btn-sm`：小型按钮；
+	* `.btn-xs`：超小按钮；
+* 块状按钮
+	* `.btn-block`：按钮会充满整个父容器，按钮变成块级元素，并没有边距；
+```
+<!-- 按钮 -->
+<button class="btn btn-primary btn-lg btn-block" type="button" disabled="disabled">按钮</button> 
+```
+### 3.6. 图片、图标
+* 图片
+	* `.img-responsive`：响应式图片，主要针对于响应式设计；
+	* `.img-rounded`：圆角图片；
+	* `.img-circle`：圆形图片；
+	* `.img-thumbnail`：缩略图片；
+```
+<!-- 图片 -->
+<img  class="img-rounded " alt="140x140" src="http://placehold.it/140x140"> 
+```
+* 图标
+	* 原理：字体图片、`@font-face`属性、`fonts`目录；
+	* 在内联元素上使用`.glyphicon`类；
+	* 其他字体图标： [Font Awesome](http://www.bootcss.com/p/font-awesome/)；
+```
+<!-- 图标 -->
+<span class="glyphicon glyphicon-search"></span>
+```
 
-## 网络系统
+## 4. 网格系统
+### 4.1 基本原理
+* 原理概要：通过定义容器大小，平分为12份，调整内外边距，结合媒体查询，实现响应式网格系统；
+* 工作原理
+	* 数据行`.row`必须包含在容器`.container`或`.container-fluid`中；
+	* 在行`.row`可以添加列，列不能超过12；
+	* 具体的内容应该放在列容器内，只有列容器才能作为行容器的直接子元素；
+	* 通过设置内边距从而创建列和列之间的距离，然后通过为首尾列设置负外边距来抵消内边距；
 ## 菜单、按钮及导航
 ## 导航条、分页导航
 ## 其他内置组件
 ## JavaScript插件
-
