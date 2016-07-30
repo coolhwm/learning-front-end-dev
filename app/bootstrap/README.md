@@ -240,6 +240,8 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 	* `.btn-xs`：超小按钮；
 * 块状按钮
 	* `.btn-block`：按钮会充满整个父容器，按钮变成块级元素，并没有边距；
+* 按钮图标
+	* 按钮中可以包裹图标，例如`<span class="glyphicon glyphicon-step-backward"></span>`；
 ```
 <!-- 按钮 -->
 <button class="btn btn-primary btn-lg btn-block" type="button" disabled="disabled">按钮</button> 
@@ -250,6 +252,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 	* `.img-rounded`：圆角图片；
 	* `.img-circle`：圆形图片；
 	* `.img-thumbnail`：缩略图片；
+
 ```
 <!-- 图片 -->
 <img  class="img-rounded " alt="140x140" src="http://placehold.it/140x140"> 
@@ -257,6 +260,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 * 图标
 	* 原理：字体图片、`@font-face`属性、`fonts`目录；
 	* 在内联元素上使用`.glyphicon`类；
+	* 图标只能引用在空元素上，需要单独在一个`<span>`标签内，可以把它们应用到按钮、工具条中的按钮组、导航或输入框等地方。
 	* 其他字体图标： [Font Awesome](http://www.bootcss.com/p/font-awesome/)；
 ```
 <!-- 图标 -->
@@ -264,14 +268,160 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 ```
 
 ## 4. 网格系统
-### 4.1 基本原理
+### 4.1. 基本原理
 * 原理概要：通过定义容器大小，平分为12份，调整内外边距，结合媒体查询，实现响应式网格系统；
 * 工作原理
 	* 数据行`.row`必须包含在容器`.container`或`.container-fluid`中；
 	* 在行`.row`可以添加列，列不能超过12；
 	* 具体的内容应该放在列容器内，只有列容器才能作为行容器的直接子元素；
 	* 通过设置内边距从而创建列和列之间的距离，然后通过为首尾列设置负外边距来抵消内边距；
-## 菜单、按钮及导航
-## 导航条、分页导航
-## 其他内置组件
-## JavaScript插件
+	* 列使用浮动实现；
+
+### 4.2. 基本用法
+* 容器
+	* `.container`：宽度是固定的，根据屏幕大小的不同，可能为`750px`,`970px`或`1170px`；
+	* `.container-fluid`：宽度始终为父容器的`100%`；列元素的宽度也会随着容器变化；
+* 行元素
+	* `.row`：定义网格的一行，一行分为`12`个槽位；
+	* 如果一行给超过12列，那么多余的部分将会放在新的一行中；
+* 列元素
+	* `.col-xs-`：适用超小屏幕，总是纵向堆叠；
+	* `.col-sm-`：适用小屏幕，小于750像素时纵向队列；
+	* `.col-md-`：适用普通电脑屏幕，小于970像素时纵向堆叠；
+	* `.col-lg-`：适用高分辨率PC屏幕，小于1170像素时纵向堆叠；
+	* 边距：列元素之间总是有30像素的边界，首位列离边框15像素；
+	* 高度：列的高度是自动的，根据内容自动拓展；
+```
+<!-- 网格容器 -->
+<div class="container">
+  <div class="row">
+    <div class="col-xm-4">.col-xm-4</div>
+    <div class="col-xm-8">.col-xm-8</div>
+  </div>
+</div>
+```
+* 列偏移
+	* `.col-md-offset-`：列向右移动多列
+* 列排序
+	* `.col-md-push-`：列向右移动；
+	* `.col-md-pull-`：列向左移动；
+* 列嵌套
+	* 列可以嵌套，可以把已存在的列单元格当做行元素；
+```
+<!-- 列嵌套容器 -->
+<div class="row">
+        <div class="col-md-8">
+            <div class="col-md-8">col-md-8</div>
+            <div class="col-md-4">col-md-4</div>
+        </div>
+        <div class="col-md-4">
+             <div class="col-md-9">col-md-9</div>
+            <div class="col-md-3">col-md-3</div>
+        </div>
+    </div>
+```
+
+## 5. 基础控件
+### 5.1. 下拉框
+* 基本原理
+	* `.dropdown-menu`默认为`display:none`；
+	* 点击时会给`.dropdown`增加`.open`；
+```
+.open > .dropdown-menu {
+  display: block;
+}
+```
+* 下拉框容器
+	* `.dropdown`或`position: relative;`的元素；
+	* 容器里包含父菜单的按钮`<button>`及子菜单的列表`<ul>`；
+```
+<!-- 下拉框容器 -->
+<div class="dropdown"></div>
+```
+* 父菜单
+	* 父菜单为按钮元素`<button type="button">`；
+	* 父菜单需要使用`.btn`，可以加上按钮的修饰类`.btn-primary`等；
+	* 父菜单需要增加`.dropdown-toggle`，修饰样式及方便调用JS；不加不影响样式；
+	* 父菜单需要增加属性`data-toggle="dropdown"`，否则无法触发事件；
+	* 父菜单需要增加子元素`<span class="caret"></span>`，否则无法展现右侧的小箭头；
+```
+<!-- 下拉父菜单 -->
+<button class="btn btn-default dropdown-toggle" type="button" id="test" data-toggle="dropdown">
+     父菜单名称
+     <span class="caret"></span>
+</button>
+```
+* 菜单项
+	* 菜单项容器为列表元素`<ul>`；
+	* 菜单项容器需要增加`.dropdown-menu`；
+	* 菜单项为链接元素`<a>`，无需增加特别的样式；
+	* `dropdown-menu-right`：可以使菜单项与父容器右侧对齐；
+	* `.disabled`：禁用菜单项；但不会禁用点击事件；
+```
+<!-- 下拉菜单项 -->
+<ul class="dropdown-menu">
+  <li><a href="#">Action</a></li>
+  <li><a href="#">Another action</a></li>
+  <li><a href="#">Something else here</a></li>
+  <li><a href="#">Separated link</a></li>
+</ul>
+```
+* 菜单分隔符
+	* `<li class="divider"></li>`：分隔符‘；
+* 菜单头部
+	* `<li class="dropdown-header">分类1</li>`:菜单头部；
+
+### 5.1. 按钮
+* 按钮组
+	* 使用`.btn-group`包裹多个菜单；
+	* 连续的多个按钮会紧密相连，中间按钮会被取消圆角；
+	* 尺寸：使用`btn-group-sm`，`btn-group-xs`，`btn-group-lg`设置按钮组尺寸，不需要给每个按钮设置大小；
+```
+<!-- 按钮组 -->
+<div class="btn-group">
+    <button type="button" class="btn btn-default">按钮1</button>
+    <button type="button" class="btn btn-default">按钮2</button>
+</div>
+```
+* 按钮工具栏
+	* 使用`btn-toolbar`来包裹多个按钮组；
+	* 按钮工具栏会设置按钮组之间距离、多个按钮组浮动、顶部对其；
+```
+<!-- 按钮工具栏 -->
+<div class="btn-toolbar">
+  <div class="btn-group"></div>
+  <div class="btn-group"></div>
+</div>
+```
+* 嵌套按钮组
+	* 实现把下拉菜单和普通的按钮组排列在一起；
+	* 在按钮组中嵌套按钮组，并用嵌套组的`.btn-group`代替下拉菜单的`.dropdown`；
+	* 在`.btn-group`元素上增加`.dropup`，可以让下拉框向上弹出；
+```
+<!-- 嵌套按钮组 -->
+<div class="btn-group">
+	<div class="btn-group">
+		<!-- 下拉菜单 -->
+	</div>
+</div>
+```
+* 分裂按钮组
+	* 按钮组中变为一个普通按钮和一个下拉按钮，图标放在下拉按钮中；
+```
+<!-- 分裂按钮组 -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+	   <!-- 下拉菜单项 -->
+  </ul>
+</div>
+```
+
+* 垂直分组
+	* 使用`.btn-group-vertiacl`让按钮组中的按钮垂直排列；
+* 两端对齐
+	* 使用`.btn-group-justified`让按钮组中的按钮占满父容器的宽度的100%；
+	* 按钮的宽度会被等分；

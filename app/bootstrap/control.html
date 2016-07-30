@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>控件</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+<body style="padding:10px;">
+
+<!-- 下拉菜单 -->
+ <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    下拉菜单
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li class="dropdown-header">分类1</li>
+    <li ><a  href="#">下拉菜单项</a></li>
+    <li ><a  href="#">下拉菜单项</a></li>
+    <li ><a  href="#">下拉菜单项</a></li>
+    <li class="divider"></li>
+    <li class="dropdown-header">分类2</li>
+    <li class="disabled"><a href="#">下拉菜单项</a></li>
+    <li ><a  href="#">下拉菜单项</a></li>
+  </ul>
+</div> 
+
+<br />
+<!-- 按钮组 -->
+<div class="btn-toolbar">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default">
+      <span class="glyphicon glyphicon-step-backward"></span>文字按钮1
+    </button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pause"></span></button>
+    <div class="btn-group dropup">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+        嵌套菜单
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">嵌套菜单项</a></li>
+        <li><a href="#">嵌套菜单项</a></li>
+        <li><a href="#">嵌套菜单项</a></li>
+      </ul>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger">Action</button>
+      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="btn-group">
+      <button type="button" class="btn btn-default">按钮1</button>
+      <button type="button" class="btn btn-default">按钮2</button>
+  </div>
+</div>
+<br />
+<!-- 垂直 -->
+<div class="btn-group btn-group-vertical">
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+</div>
+<br />
+<!-- 两端对齐 -->
+<div class="btn-group btn-group-justified">
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span></button>
+      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span>
+        按钮2按钮2按钮2按钮2按钮2
+      </button>
+</div>
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>
