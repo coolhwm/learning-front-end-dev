@@ -371,7 +371,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 * 菜单头部
 	* `<li class="dropdown-header">分类1</li>`:菜单头部；
 
-### 5.1. 按钮
+### 5.2. 按钮
 * 按钮组
 	* 使用`.btn-group`包裹多个菜单；
 	* 连续的多个按钮会紧密相连，中间按钮会被取消圆角；
@@ -425,3 +425,130 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 * 两端对齐
 	* 使用`.btn-group-justified`让按钮组中的按钮占满父容器的宽度的100%；
 	* 按钮的宽度会被等分；
+
+### 5.3. 导航
+* 基础导航
+	* `.nav`：所有导航样式都依赖这个类；
+	* 导航的本质是无序列表`<ul>`；
+	* 导航在小分辨率下自动变成堆叠导航；
+* 导航样式
+	* `.nav-tabs`：标签页导航条；
+	* `.nav-pills`：胶囊式导航条；
+	* `.nav-stacked`：堆叠导航条，要和`.nav-pills`配合，可以使用`  <li class="nav-divider"></li>`增加分隔符；
+	* `.nav-justified`：自适应导航，宽度为父容器100%；
+* 导航状态
+	* 在`<li>`上增加`.active`即可将该项设为激活状态；
+	* 在`<li>`上更增加`.disabled`可以将标签置为禁用状态；
+	* 另外还有悬浮状态和点击状态；
+	* 点击事件需要配合JS插件实现；
+```
+<!-- 堆叠导航 -->
+<ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#">菜单项</a></li>
+  <li class="disabled"><a href="#">菜单项</a></li>
+  <li><a href="#">菜单项</a></li>
+  <li class="nav-divider"></li>
+  <li><a href="#">菜单项</a></li>
+</ul>
+```
+* 二级导航
+	* 将一个`<li>`设置为`.dropdown`即可定义一个二级菜单，方式基本和下拉菜单一致；
+	* 主菜单项使用`<a>`标签，并且只需要`.dorpdown-toggle`即可；
+```
+<!-- 二级导航 -->
+<ul class="nav nav-pills">
+  <li class="dropdown">
+    <a class="dropdown-toggle"  href="#" data-toggle="dropdown">
+      下拉菜单项
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">子菜单</a></li>
+      <li><a href="#">子菜单</a></li>
+      <li class="nav-divider"></li>
+      <li><a href="#">子菜单</a></li>
+      <li><a href="#">子菜单</a></li>
+    </ul>
+  </li>
+</ul>
+```
+* 面包屑导航
+	* 使用`<ol>`标签，并加上`.breadcurmb`属性；
+	* 当前激活的标签加上`.active`并且不需要嵌套`<a>`标签；
+```
+<ol class="breadcrumb">
+  <li><a href="#">面包屑</a></li>
+  <li><a href="#">面包屑</a></li>
+  <li><a href="#">面包屑</a></li>
+  <li class="active">面包屑</li>
+</ol>
+```
+### 5.4. 导航条
+*导航条`navbar` 与导航`nav`的区别
+	* 导航条是在应用或网站中作为导航页头的**响应式基础组件**，移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式；
+	* 导航条可以是纯链接（类似导航），也可以是表单，还有就是表单和导航一起结合等多种形式；
+	* 导航条中有背景色；
+	* 导航条不应该放在有内边距的容器内，否则在窄屏幕下可能展现异常；
+* 基础导航条
+	* 导航条容器：在`<div>`上增加`.navbar`；
+	* 导航条容器样式：在`.navbar`上增加`.navbar-default`等风格属性；
+	* 导航：在导航条容器中增加导航`.nav`，并标注是导航条的导航`.navbar-nav`；
+```
+<!-- 基础导航条 -->
+<div class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li class="active"><a href="#">菜单项</a></li>
+    <li><a href="#">菜单项</a></li>
+    <li><a href="#">菜单项</a></li>
+    <li><a href="#">菜单项</a></li>
+  </ul>
+</div>
+```
+* 导航条标题
+	* 可以在`.navbar-nav`前加入`.navbar-header`，作为导航条标题；
+	* 标题内容放在`<a>`标签内，并且加上`.navbar-brand`；
+```
+<!-- 导航条标题 -->
+<div class="navbar-header">
+	 <a href="#" class="navbar-brand">标题</a>
+</div>
+```
+* 二级菜单
+	* 和`.nav`中的代码格式一致；
+```
+<!-- 二级菜单 -->
+<ul class="nav navbar-nav">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        菜单名称
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+	      <!-- 二级菜单项 -->
+      </ul>
+    </li>
+  </ul>
+```
+* 导航条中的表单
+	*	可以在`.navbar`中加入`<form>`并加上`.navbar-form`，内嵌表单会呈现良好的垂直对齐；
+	*	可以使用`.navbar-right`或`.navbar-left`控制表单的对齐方式；
+	*	某些表单组件，例如输入框组，可能需要设置一个固定宽度；
+	*	表单在小屏幕时会折叠展现；
+	*	表单中可以内嵌按钮；
+```
+<!-- 导航条表单 -->
+<form action="##" class="navbar-form navbar-right">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="请输入标题">
+  </div>
+  <button type="submit" class="btn btn-default">检索</button>
+</form>
+```
+* 其他元素
+	* `.nav-text`：文本；；
+	* `.nav-btn`：按钮；
+	* `.nav-link`：链接；
+* 固定导航栏
+	*  `.navbar-fixed-top`：导航条固定在浏览器窗口顶部；
+	*  `.navbar-fixed-bottom`：导航条固定在浏览器窗口底部；
+*  响应式导航栏

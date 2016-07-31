@@ -5,6 +5,7 @@
 * Day3：完成表单学习60%(2016-07-29)；
 * Day4：完成表单学习100%，网格布局50%(2016-07-30)；
 * Day5：完成网格布局学习100%，控件50%(2016-07-30)；
+* Day6：完成控件学习70%(2016-07-31)；
 
 > [Bootstrap 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/app/bootstrap)
 
