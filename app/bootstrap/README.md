@@ -1,7 +1,9 @@
 # Bootstrap 学习笔记
-
 ## 1. 简介
 Bootstrap框架是一个非常受欢迎的前端开发框架，他能让后端程序员和不懂设计的前端人员制作出优美的Web页面或Web应用程序。
+
+> 慕课网-玩转Bootstrap（大漠）：http://www.imooc.com/learn/141
+> Bootstrap中文网：http://v3.bootcss.com/
 
 ## 2. 排版
 Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，让页面在用户面前呈现的更佳完美
@@ -321,7 +323,7 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
     </div>
 ```
 
-## 5. 基础控件
+## 5. 基础组件
 ### 5.1. 下拉框
 * 基本原理
 	* `.dropdown-menu`默认为`display:none`；
@@ -484,14 +486,14 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 </ol>
 ```
 ### 5.4. 导航条
-*导航条`navbar` 与导航`nav`的区别
+* 导航条`navbar` 与导航`nav`的区别
 	* 导航条是在应用或网站中作为导航页头的**响应式基础组件**，移动设备上可以折叠（并且可开可关），且在视口（viewport）宽度增加时逐渐变为水平展开模式；
 	* 导航条可以是纯链接（类似导航），也可以是表单，还有就是表单和导航一起结合等多种形式；
 	* 导航条中有背景色；
 	* 导航条不应该放在有内边距的容器内，否则在窄屏幕下可能展现异常；
 * 基础导航条
 	* 导航条容器：在`<div>`上增加`.navbar`；
-	* 导航条容器样式：在`.navbar`上增加`.navbar-default`等风格属性；
+	* 导航条容器样式：在`.navbar`上增加`.navbar-default`,`.navbar-inverse`等风格属性；
 	* 导航：在导航条容器中增加导航`.nav`，并标注是导航条的导航`.navbar-nav`；
 ```
 <!-- 基础导航条 -->
@@ -507,10 +509,14 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 * 导航条标题
 	* 可以在`.navbar-nav`前加入`.navbar-header`，作为导航条标题；
 	* 标题内容放在`<a>`标签内，并且加上`.navbar-brand`；
+	* 可以使用图标；
 ```
 <!-- 导航条标题 -->
 <div class="navbar-header">
-	 <a href="#" class="navbar-brand">标题</a>
+	 <a href="#" class="navbar-brand">
+      <span class="glyphicon glyphicon-eye-open"></span>
+    </a>
+	<a href="#" class="navbar-brand">标题</a>
 </div>
 ```
 * 二级菜单
@@ -552,3 +558,182 @@ Bootstrap通过覆写元素的默认样式，实现对页面排版的优化，�
 	*  `.navbar-fixed-top`：导航条固定在浏览器窗口顶部；
 	*  `.navbar-fixed-bottom`：导航条固定在浏览器窗口底部；
 *  响应式导航栏
+	*  响应式导航条依赖 `collapse` 插件；
+	*  收缩按钮：在`.navbar-header`增加一个收缩按钮，其中三个`<span>`是图标的固定写法，还需增加`.navbar-toggle`,`data-toggle="collaps"`, `data-taget="收缩元素标识"`；按钮在小屏幕时才会出现；
+	*  标题：标题还是使用`navbar-brand`定义，始终会显示；
+	*  主菜单部分：需要在小屏时隐藏的部分需要用`<div>`包裹并加上`.collapse`,`.navbar-collapse`；样式类名或ID要和`data-target`匹配；
+```
+<!-- 响应式导航 -->
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <!-- 菜单按钮，小屏时显示 -->
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-main-menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!-- 主标题，始终显示 -->
+    <a href="#" class="navbar-brand">主标题</a>
+  </div>
+  <!-- 主菜单部分，小屏时不显示 -->
+  <div class="navbar-collapse collapse nav-main-menu">
+    <ul class="nav navbar-nav">
+      <li><a href="#">菜单项</a></li>
+      <li><a href="#">菜单项</a></li>
+    </ul>
+  </div>
+</div>
+```
+
+### 5.5. 分页
+* 页码分页
+	* 基本结构：`<ul>`无序列表使用`.pagination`修饰；
+	* 尺寸大小：`pagination-lg`,`pagination-sm`；
+	* 状态：`.active`，`.disabled`;
+	* 默认是左对齐的；
+```
+<!-- 页码分页 -->
+<ul class="pagination">
+  <li class="disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
+```
+* 翻页分页
+	* 基本结构：`<ul>`无序列表使用`.pager`修饰；
+	* 左右对齐：使用`.previous`和`.next`修饰分页按钮；
+	* 默认是居中的；
+```
+<!-- 翻页分页 -->
+<ul class="pager">
+  <li ><a href="#">上一页</a></li>
+  <li class="disabled"> <a href="#">下一页</a></li>
+</ul>
+```
+
+### 5.6. 标注
+* 标签
+	* 添加一个标签用来告诉用户一些额外的信息；
+	* 基本结构： 使用`<span>`标签和`.label`修饰；
+	* 样式颜色：使用`.lable-primary`，`.lable-default`等进行修饰；
+	* **标签会被父元素的样式影响，定位可能存在问题**
+```
+<!-- 标签 -->
+<span class="label label-warning">重要</span>
+```
+* 徽章
+	* 添加一个徽章用来告诉用户一些额外的信息；
+	* 基本结构： 使用`<span>`标签和`.badge`修饰；
+```
+<!-- 徽章 -->
+<span class="badge">10</span>
+```
+
+## 6. 扩展组件
+### 6.1. 缩略图
+* 基本缩略图
+	* 缩略图配合网格系统实现；
+	* 缩略图需要将`<img>`用`<a href="#" class="thumbnail"></a>`包裹；
+
+```
+<!-- 缩略图 -->
+<a href="#" class="thumbnail">
+	<img alt="" src="#" style="" >
+</a>
+```
+* 缩略图说明
+	* 缩略图`.thumbnail`标签内嵌套`<div class="caption">`可以实现缩略图说明区域；
+
+### 6.2. 提示框
+* 基本提示框
+	* 使用`<div>`标签并用`.alert`修饰;
+	* 样式：`.alert-info`，`alert-success`，`.alert-dnager`，`alert-warning`；
+* 可关闭提示框
+	* 增加`.alert-dismissable`；
+	* 增加关闭按钮；
+* 提示框链接
+	* 需要用`.alert-link`修饰；
+```
+<!-- 可关闭提示框 -->
+<div class="alert alert-success alert-dismissable">
+	成功信息<a href="#" class="alert-link">查看详情</a>
+	<button class="close" type="button" data-dismiss="alert">&times;</button>
+</div>
+```
+
+### 6.3. 进度条
+* 基本进度条
+	* 进度条外框：使用`.progress`修饰；
+	* 进度条：使用`progress-bar`修饰，需要指定具体的百分比；
+	* 颜色：使用`progress-bar-info`等类进度条；
+	* 条纹：使用`progress-bar-striped`修饰进度条；增加`.active`可以让条纹动起来；
+	* 文本：在进度条中可以增加说明文本；
+```
+<!-- 基本进度条 -->
+<div class="progress">
+	<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:80%;">下载中</div>
+</div>
+```
+* 层叠进度条
+	* 进度条外框可以嵌套多个进度条；
+
+### 6.4. 列表组
+* 基本列表组
+	* 列表组容器：`<ul>`标签使用`.list-group`修饰；
+	* 列表项目：`.list-group-item`；
+	* 徽章：列表组上可以增加`.badge`徽章；
+	* 状态：`.disabled`，`.active`；
+	* 样式：`.list-group-item-success`等；
+* 链接列表组
+	* 列表组容器：`<div>`标签使用`.list-group`修饰；
+	* 列表项目：`<a>`标签`.list-group-item`修饰；
+* 	自定义列表组
+	* 	列表组标题：`<h>`标签使用`.list-group-item-heading`修饰；
+	* 	列表组内容：`<p>`标签使用`.list-group-item-text`修饰；
+```
+<!-- 列表组 -->
+<div class="list-group">
+	<a href="#" class="list-group-item list-group-item-success">列表项目1<span class="badge">30</span></a>
+	<a href="#" class="list-group-item active">
+		<h3 class="list-group-item-heading">标题 <span class="badge">12</span></h3>
+		<p class="list-group-item-text">列表组内容</p>
+	</a>
+	<a href="#" class="list-group-item">列表项目3 <span class="badge">1</span></a>
+</div>
+```
+
+### 6.5. 面板
+* 基础面板
+	* 面板外框：`<div>`标签使用`.panel`修饰；
+	* 面板主体：`<div>`标签使用`.panel-body`修饰；
+	* 面板头部：`<div>`标签使用`.panel-heading`修饰；
+	* 面板尾部：`<div>`标签使用`.panel-footer`修饰；
+	* 面板颜色：`panel-default`,`panel-primary`等；
+* 面板嵌套
+	* 表格：直接嵌套或与`.panel-body`平级（无边距）；
+	* 列表组：同表格；
+```
+<!-- 面板 -->
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		面板标题
+	</div>
+	<div class="panel-body">
+		默认主题的基础面板
+	</div>
+	<table class="table table-bordered">
+		<tr>
+			<td>内容1</td>
+			<td>内容2</td>
+			<td>内容3</td>
+			<td>内容4</td>
+		</tr>
+	</table>
+	<div class="panel-footer">
+		面板尾部
+	</div>
+</div>
+```

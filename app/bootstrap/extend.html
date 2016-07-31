@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>扩展组件</title>
+<link rel="stylesheet" href="../css/bootstrap.css">
+<style type="text/css">
+body{
+  padding:5px;
+}
+</style>
+</head>
+
+<body>
+<!-- 面板 -->
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		面板标题
+	</div>
+	<div class="panel-body">
+		默认主题的基础面板
+	</div>
+	<table class="table table-bordered">
+		<tr>
+			<td>内容1</td>
+			<td>内容2</td>
+			<td>内容3</td>
+			<td>内容4</td>
+		</tr>
+	</table>
+	<div class="panel-footer">
+		面板尾部
+	</div>
+</div>
+
+<!-- 列表组 -->
+<div class="list-group">
+	<a href="#" class="list-group-item list-group-item-success">列表项目1<span class="badge">30</span></a>
+	<a href="#" class="list-group-item active">
+		<h3 class="list-group-item-heading">标题 <span class="badge">12</span></h3>
+		<p class="list-group-item-text">列表组内容</p>
+	</a>
+	<a href="#" class="list-group-item">列表项目3 <span class="badge">1</span></a>
+</div>
+
+<ul class="list-group">
+	<li class="list-group-item"><span class="badge">12</span> 列表项目1</li>
+	<li class="list-group-item">列表项目2</li>
+	<li class="list-group-item">列表项目3</li>
+	<li class="list-group-item">列表项目4</li>
+</ul>
+
+<!-- 进度条 -->
+<div class="progress">
+	<div class="progress-bar" style="width:10%"></div>
+	<div class="progress-bar" style="width:10%"></div>
+	<div class="progress-bar" style="width:10%"></div>
+	<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:10%">下载中</div>
+</div>
+
+<div class="progress">
+	<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width:80%;">下载中</div>
+</div>
+
+<!-- 警告框 -->
+<div class="alert alert-success alert-dismissable">
+	成功信息 <a href="#" class="alert-link"><查看详情></a>
+	<button class="close" type="button" data-dismiss="alert">&times;</button>
+</div>
+<div class="alert alert-danger">错误提示</div>
+<!-- 缩略图 -->
+<div class="container">
+    <div class="row">
+		<div class="col-xs-6 col-md-3">
+			<div  class="thumbnail">
+				<img alt="100%x180" src="http://img.mukewang.com/5434eba100014fe906000338.png" style="height: 180px; width: 100%; display: block;" >
+		
+			<div class="caption">
+				<h3>Bootstrap框架系列教程</h3>
+				<p>Bootstrap框架是一个优秀的前端框，就算您是一位后端程序员或者你是一位不懂设计的前端人员，你也能依赖于Bootstrap制作做优美的网站...</p>
+				<p>
+					<a href="##" class="btn btn-primary">开始学习</a>
+					<a href="##" class="btn btn-info">正在学习</a>
+				</p>
+			</div>  
+			</div>
+		</div>
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img alt="100%x180" src="http://img.mukewang.com/5434eba100014fe906000338.png" style="height: 180px; width: 100%; display: block;">
+			</a>
+		</div>
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img alt="100%x180" src="http://img.mukewang.com/5434eba100014fe906000338.png" style="height: 180px; width: 100%; display: block;">
+			</a>
+		</div>
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img alt="100%x180" src="http://img.mukewang.com/5434eba100014fe906000338.png" style="height: 180px; width: 100%; display: block;">
+			</a>
+		</div>
+	</div>
+</div>	
+
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+</body>
+</html>
