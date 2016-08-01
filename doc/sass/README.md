@@ -12,3 +12,8 @@
 ### Sass 与 SCSS
 - 扩展名不同：Sass是`.sass`，SCSS是`.scss`；
 - 语法规则不同：Sass是严格缩进语法，不带括号，类似`Ruby`；SCSS是类似CSS的书写语法；
+
+## 安装环境
+- 必须成功安装`Ruby`；
+- 使用`Ruby gen install`命令安装Sass；
+- 国内可能被墙，可以使用离线安装或镜像安装；
