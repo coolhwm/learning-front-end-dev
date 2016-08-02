@@ -11,6 +11,7 @@
 
 ## Sass
 * Day1：了解Sass基本背景(2015/08/01)；
+* Day2：完成Sass安装，了解基本语法和编译方式；
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
