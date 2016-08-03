@@ -16,6 +16,9 @@
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
+## Javascript 面向对象
+* 未开始；
+
 ## AngularJS
 * Day0：基础知识已学习完毕；
 
