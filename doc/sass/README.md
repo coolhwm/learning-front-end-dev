@@ -27,7 +27,7 @@
 ### 编译SCSS
 > 使用Sass，但在项目中还是引用“.css”文件，Sass 只不过是做为一个预处理工具 
 
-编译操作：
+- 命令编译：直接使用命令行工具编译；
 ``` bash
 //单文件编译
 sass style.scss style.css
@@ -35,4 +35,26 @@ sass style.scss style.css
 sass --watch style.scss:style.css
 //文件夹监听
 sass --watch sassFileDirectory:cssFileDirectory
+```
+- GUI编译：通过可视化页面编译；
+- Grunt编译：可以配置 Sass 的编译 ；
+
+### 编译输出方式
+
+``` bash
+//指定一种编译风格
+sass --watch test.scss:test.css --style compressed
+```
+
+- 嵌套输出方式 nested：后括号不单独占一行（**默认**）；
+- 展开输出方式 expanded：后括号单独占一行；
+- 紧凑输出方式 compact：单行模式；
+- 压缩输出方式 compressed：全部压缩成一行；
+
+### Sass 的调试
+- 谷歌浏览器支持`sourcemap`功能，可以从`CSS`跳转到`SASS`源文件；
+- 会生成`.css.map`的映射文件；
+- 编译时增加`--sourcemap`；
+``` bash
+sass --watch style.scss:style.css
 ```
