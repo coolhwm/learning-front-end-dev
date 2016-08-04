@@ -1,0 +1,23 @@
+//mixin
+@mixin standard-size($width, $height){
+    width:$width;
+    height:$height;
+}
+
+//mixin with argument
+@mixin border-radius($radius:5px){
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//mixin with complex argument
+@mixin border-style($styles...){
+    border: $styles;
+}
+
+.box{
+    background-color: red;
+    @include border-style(solid 1px red);
+    @include border-radius(20px);
+    @include standard-size(400px,500px);
+}

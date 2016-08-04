@@ -1,0 +1,26 @@
+.table {
+  color: purple;
+  border-top-color: red;
+  border-top-style: dashed;
+  border-top-width: 3px;
+  border-left: dashed 2px blue;
+  border-right: dotted 1px yellow;
+  border-bottom: double 2px black;
+}
+.table tr td {
+  border: solid 1px gray;
+}
+.vip {
+  color: red;
+}
+.table tr.active {
+  background-color: red;
+}
+.table tr.success {
+  background-color: yellow;
+}
+.table {
+  padding: 20px;
+}
+
+/*# sourceMappingURL=nest.css.map */

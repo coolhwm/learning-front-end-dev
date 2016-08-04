@@ -1,0 +1,5 @@
+$margin-location:right;
+.box{
+    margin-#{$margin-location} : 100px;
+
+}

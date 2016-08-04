@@ -1,0 +1,23 @@
+%basic-box{
+    border:solid 1px red;
+    background-color: green;
+}
+
+.box{
+    @extend %basic-box;
+    font-size: 20px;
+    width: 500px;
+    height: 350px;
+}
+
+.box-primary{
+    @extend .box;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+
+.big-primary-box{
+    @extend .box-primary;
+    width: 1000px;
+}

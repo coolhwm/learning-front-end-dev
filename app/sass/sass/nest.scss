@@ -1,0 +1,36 @@
+//test nesting style
+
+.table {
+    color :purple;
+
+    //nest property
+    border: {
+        top: {
+            color: red;
+            style: dashed;
+            width: 3px;
+        }
+        left: dashed 2px blue;
+        right: dotted 1px yellow;
+        bottom: double 2px black;
+    }
+    //nest selector
+    tr td {
+        border: solid 1px gray;
+
+        //jump out
+        @at-root .vip{
+            color: red;
+        }
+    }
+    tr.active {
+        background-color: red;
+    }
+    tr.success {
+        background-color: yellow;
+    }
+    //parent selector
+    & {
+        padding: 20px;
+    }
+}

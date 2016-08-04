@@ -1,5 +1,19 @@
+.content {
+  color: green; }
+
 .body {
   font-size: 12px;
-  color: black; }
+  color: green; }
+
+.btn-primary {
+  background-color: #337ab7;
+  color: #fff;
+  border: 1px solid #2e6da4; }
+
+div {
+  background-color: yellow; }
+
+span {
+  background-color: green; }
 
 /*# sourceMappingURL=main.css.map */

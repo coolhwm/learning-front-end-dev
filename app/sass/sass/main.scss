@@ -1,7 +1,43 @@
+//define variable
 $global-font-size:12px;
-$global-font-color:black;
+$global-font-color:green;
+
+//define default variable
+$test-default-color:red !default;
+
+//replace default value
+$test-default-color:green;
+
+//simple demo
+.content{
+  color:$test-default-color;
+}
 
 .body{
 	font-size:$global-font-size;
 	color:$global-font-color;
+}
+
+//bootstrap example
+$brand-primary : darken(#428bca, 6.5%) !default; // #337ab7
+$btn-primary-color: #fff !default;
+$btn-primary-bg : $brand-primary !default;
+$btn-primary-border : darken($btn-primary-bg, 5%) !default;
+
+.btn-primary {
+  background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border: 1px solid $btn-primary-border;
+}
+
+//local and global variable
+$var : green;
+div{
+  $var:yellow;
+  //replace global var
+  background-color: $var;
+}
+span{
+  //use global var
+  background-color: $var;
 }

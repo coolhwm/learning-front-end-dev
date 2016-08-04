@@ -1,0 +1,21 @@
+.box, .box-primary, .big-primary-box {
+  border: solid 1px red;
+  background-color: green;
+}
+
+.box, .box-primary, .big-primary-box {
+  font-size: 20px;
+  width: 500px;
+  height: 350px;
+}
+
+.box-primary, .big-primary-box {
+  background-color: blue;
+  border-radius: 10px;
+}
+
+.big-primary-box {
+  width: 1000px;
+}
+
+/*# sourceMappingURL=extend.css.map */
