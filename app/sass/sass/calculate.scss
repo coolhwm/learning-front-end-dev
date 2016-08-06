@@ -1,0 +1,19 @@
+$sidebar-width:100px;
+$content-width:500px;
+$gap-width:5px;
+$container-width: 610px;
+
+//basic
+.box{
+    width: $sidebar-width + $content-width + $gap-width * 2;
+}
+
+.sidebar{
+    width: $container-width - $gap-width *2 - $content-width;
+}
+
+//color
+.box{
+    color: green + red;
+    background-color:  #010203 * 2;
+}

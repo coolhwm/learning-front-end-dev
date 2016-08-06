@@ -1,0 +1,62 @@
+//@if
+
+$content-width:50px;
+
+@mixin box-style($content-width){
+    @if $content-width > 200px {
+        background-color: red;
+        border: solid 1px black;
+    }
+    @else {
+        background-color: yellow;
+        border: dashed 2px red;
+    }
+}
+
+.box{
+    @include box-style($content-width);
+}
+
+//@for
+$gutter-width:10px;
+$max-col-num:2;
+
+%grid{
+    float: left;
+    margin:0 $gutter-width / 2;
+}
+
+@for $i from 1 through $max-col-num{
+    .col-md-#{$i}{
+        width:percentage($i * 1/$max-col-num);
+        @extend %grid;
+    }
+}
+
+//@while
+$col-num : $max-col-num;
+@while $col-num  > 0{
+    .col-xs-#{$col-num}{
+        width:percentage($col-num * 1/$max-col-num);
+        @extend %grid;
+    }
+    $col-num : $col-num - 1;
+}
+
+//@each
+$pic-list : success primary danger default warning;
+@mixin pic-location{
+    @each $pic-name in $pic-list{
+        .pic-#{pic-name}{
+            background-image: url("img/pic/#{$pic-name}.png");
+        }
+    }
+}
+
+.pic{
+    @include pic-location;
+    width:16px;
+    height: 10px;
+    display: inline-block;
+}
+

@@ -141,7 +141,7 @@ border: {
 	-	选择器继承可以让选择器继承另一个选择器的所有样式，并**联合声明**；
 -	使用继承
 	-	使用`@extend`声明继承关系，随后紧跟需要继承的选择器；
-	-	使用`%`选择器占位符，如果不调用则不会生成CSS，相当于抽象类；
+	-	使用`%`选择器占位符，如果不调用则不会生成CSS，相当于`抽象类`；
 	-	继承关系生成CSS时会合并代码块，但是不能传递参数；
 
 ``` scss
@@ -176,3 +176,75 @@ $margin-location:right;
 margin: 10px 15px 0 0;
 font-face: Helvetica, Arial, sans-serif;
 ```
+
+### 3.8 运算
+- 基本运算
+	- 支持加减乘除基本运算；
+	- 不同单位的数字无法计算；
+	- 可以使用变量或数字进行运算；
+- 颜色运算
+	- 颜色可以互相加减，可以和数字进行乘法运算；
+	- 色值直接可以直接进行运算；
+- 字符运算
+	- 字符之间可以使用`+`加号进行连接；
+	- 连接结果是否有引号，由左边的字符决定；
+
+### 3.9 控制指令
+#### 3.9.1 @if
+`@if` 指令是一个 `SassScript`，它可以根据条件来处理样式块，可以配合 `@else if` 和 `@else` 一起使用。
+``` scss
+//@if
+@mixin box-style($content-width){
+    @if $content-width > 200px {
+        background-color: red;
+        border: solid 1px black;
+    }
+    @else {
+        background-color: yellow;
+        border: dashed 2px red;
+    }
+}
+```
+#### 3.9.2 @for
+`@for`指令可以重复某一个代码段：
+- `$i` 表示变量
+- `start` 表示起始值
+- `end` 表示结束值
+- `through`：包括`end`；
+- `to`：不包括`end`；
+``` scss
+//@for
+@for $i from 1 through 12{
+    .col-md-#{$i}{
+        width:percentage(1 - 1 * (12 - $i)/12);
+    }
+}
+```
+#### 3.9.3 @while
+`@while` 指令是 SassScript 表达式，只要 @while 后面的条件为 true 就会执行。
+``` scss
+//@while
+@while $col-num  > 0{
+    .col-xs-#{$col-num}{
+        width:percentage($col-num * 1/$max-col-num);
+        @extend %grid;
+    }
+    $col-num : $col-num - 1;
+}
+```
+
+#### 3.9.4 @each
+`@each` 循环就是去遍历一个列表，然后从列表中取出对应的值。
+``` scss
+//@each
+$pic-list : success primary danger default warning;
+@mixin pic-location{
+    @each $pic-name in $pic-list{
+        .pic-#{pic-name}{
+            background-image: url("img/pic/#{$pic-name}.png");
+        }
+    }
+}
+```
+
+### 3.10 函数
