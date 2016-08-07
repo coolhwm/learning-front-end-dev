@@ -1,0 +1,76 @@
+//percentage()
+.footer{
+    width : percentage(5px / 10px)
+}
+
+//round
+.footer1 {
+
+    width:round(15.8px)
+}
+
+//ceil
+.footer2 {
+
+    width:ceil(18.1px);
+}
+
+//floor
+.footer3 {
+
+    width:floor(13.5px);
+}
+
+//abs
+.footer4 {
+    height:min(6,50,10%,3,300%);
+    margin-left:max(10px,23px);
+    width:abs(-8.9px);
+}
+
+$list : primary default success danger warning;
+
+$list2 : error disabled;
+
+$list3 : join($list,$list2);
+
+$list4 : append($list3, invalid);
+
+$index : index($list4, disabled);
+
+.box{
+    background-image: url("images/#{nth($list4 ,8)}.png");
+    height: $index * 1px;
+}
+
+$social-colors: (
+        dribble: #ea4c89,
+        facebook: #3b5998,
+        github: #171515,
+        google: #db4437,
+        twitter: #55acee
+);
+@function colors($color){
+    @if not map-has-key($social-colors,$color){
+        @warn "No color found for `#{$color}` in $social-colors map. Property omitted.";
+    }
+    @return map-get($social-colors,$color);
+}
+.btn-dribble {
+    color: colors(dribble);
+}
+.btn-facebook {
+    color: colors(facebook);
+}
+.btn-github {
+    color: colors(github);
+}
+.btn-google {
+    color: colors(google);
+}
+.btn-twitter {
+    color: colors(twitter);
+}
+.btn-weibo {
+    color: colors(weibo);
+}

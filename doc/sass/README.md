@@ -182,6 +182,7 @@ font-face: Helvetica, Arial, sans-serif;
 	- 支持加减乘除基本运算；
 	- 不同单位的数字无法计算；
 	- 可以使用变量或数字进行运算；
+	- 无单位数字和有单位数字相乘，结果带单位，可用于数字转长度单位；
 - 颜色运算
 	- 颜色可以互相加减，可以和数字进行乘法运算；
 	- 色值直接可以直接进行运算；
@@ -248,3 +249,77 @@ $pic-list : success primary danger default warning;
 ```
 
 ### 3.10 函数
+#### 3.10.1 字符串函数
+- `unquote`,`quote`：增加、去除引号；
+- `to-upper-case`,`to-lower-case`：大小写转换；
+
+#### 3.10.2 数字函数
+- `percentage`：数字转换为百分比；
+- `round()`, `ceil()`, `floor()`：取整函数；
+- `min()`,`max()`：最值函数；
+- `abs()`：取绝对值；
+- `random()`：取随机数；
+
+#### 3.10.3 列表函数
+- `length()`：返回列表长度；
+- `nth($list, $n)`：返回第n个元素；
+- `join($list1, $list2, [$separator])`：连接两个列表；`separator`可以取值`comma`逗号分隔或`space`空格分隔；
+- `append($list1, $val, [$separator])`：在列表中加入元素；
+- `zip($lists…)`：合并列表；
+- `index($list, $value)`：返回值在列表中的位置；
+
+#### 3.10.4 Introspection函数
+- `type-of($value)`：判断类型，包括：`number`,`string`,`boolean`,`color`；
+- `unit($number)`：获取单位；
+- `unitless($number)`：判断是否有单位；
+- `comparable($number-1, $number-2)`：判断是否可以比较；
+
+#### 3.10.5 三元函数
+- `if($condition,$if-true,$if-false)`：他有两个值，当条件成立返回一种值，当条件不成立时返回另一种值；
+
+#### 3.10.6 Map函数
+- `map-get($map,$key)`：根据key获取value；
+- `map-merge($map1,$map2)`：合并map；
+- `map-remove($map,$key)`：移除元素；
+- `map-keys($map)`：返回所有key的列表；
+- `map-values($map)`：返回所有value的列表；
+- `map-has-key($map,$key)`：判断key是否存在；
+- `keywords($args)`
+``` scss
+//map 的定义
+$social-colors: (
+        dribble: #ea4c89,
+        facebook: #3b5998,
+        github: #171515,
+        google: #db4437,
+        twitter: #55acee
+);
+```
+#### 3.10.7 颜色函数
+- `rgb($red,$green,$blue)`：根据红、绿、蓝三个值创建一个颜色；
+- `rgba($red,$green,$blue,$alpha)`：根据红、绿、蓝和透明度值创建一个颜色；
+- `red($color)`：从一个颜色中获取其中红色值；
+- `green($color)`：从一个颜色中获取其中绿色值；
+- `blue($color)`：从一个颜色中获取其中蓝色值；
+- `mix($color-1,$color-2,[$weight])`：把两种颜色混合在一起。
+
+#### 3.10.8 HSL函数
+- `lighten($color,$amount)`：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；
+- `darken($color,$amount)`：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
+- `saturate($color,$amount)`：通过改变颜色的饱和度值，让颜色更饱和，从而创建一个新的颜色；
+- `adjust-hue($color,$degrees`)：通过改变一个颜色的色相值，创建一个新的颜色；
+- `grayscale($color)`：将一个颜色变成灰色，相当于desaturate($color,100%);
+
+#### 3.10.9 Opacity函数
+
+- `alpha($color) /opacity($color)`：获取颜色透明度值；
+- `rgba($color, $alpha)`：改变颜色的透明度值；
+- `opacify($color, $amount) / fade-in($color, $amount)`：使颜色更不透明；
+- `transparentize($color, $amount) / fade-out($color, $amount)`：使颜色更加透明。
+
+### 3.11 @指令
+- `@import`：引入 SCSS 和 Sass 文件，合并并输出一个单一的 CSS 文件
+- `@media`：和 CSS 的使用规则一样；
+- `@extend`：扩展选择器或占位符；
+- `@at-root`：跳出根元素；
+- `@debug`,`@warn`,`@error`：打印调试信息；

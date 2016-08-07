@@ -1,0 +1,48 @@
+.footer {
+  width: 50%;
+}
+
+.footer1 {
+  width: 16px;
+}
+
+.footer2 {
+  width: 19px;
+}
+
+.footer3 {
+  width: 13px;
+}
+
+.footer4 {
+  height: 3;
+  margin-left: 23px;
+  width: 8.9px;
+}
+
+.box {
+  background-image: url("images/invalid.png");
+  height: 7px;
+}
+
+.btn-dribble {
+  color: #ea4c89;
+}
+
+.btn-facebook {
+  color: #3b5998;
+}
+
+.btn-github {
+  color: #171515;
+}
+
+.btn-google {
+  color: #db4437;
+}
+
+.btn-twitter {
+  color: #55acee;
+}
+
+/*# sourceMappingURL=function.css.map */

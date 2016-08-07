@@ -14,7 +14,8 @@
 * Day2：完成Sass安装，了解基本语法和编译方式(2015/08/02)；
 * Day3：Sass的编译与调试(2015/08/03)；
 * Day4：完成基本语法学习(2015/08/04)；
-* Day5：完成控制语句学习(2015/08/07)；
+* Day5：完成控制语句学习(2015/08/06)；
+* Day6：完成学习(2015/08/07)；
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 

@@ -1,0 +1,132 @@
+//constant
+$cell-width : 50px;
+$cell-height : 80px;
+$color-base-red : #DC143C;
+$idx-total-cell: 21;
+$color-step : 5;
+$idx-base-color-cell: ceil($idx-total-cell / 2);
+
+//color family
+$color-name-list : "red" "orange" "yellow" "green" "blue" "purple";
+
+$color-base-orange : saturate(lighten(adjust_hue($color-base-red , 39), 5), 7);;
+$color-base-yellow : saturate(lighten(adjust_hue($color-base-red, 64), 6), 13);
+$color-base-green : desaturate(darken(adjust_hue($color-base-red, 102), 2), 11);
+$color-base-blue : saturate(darken(adjust_hue($color-base-red, 201), 2), 1);
+$color-base-purple : saturate(darken(adjust_hue($color-base-red, 296), 2), 1);
+$color-base-black: #777;
+
+//color darken
+@mixin colorDarken($color){
+    $idx-start : $idx-base-color-cell + 1;
+    $idx-end : $idx-total-cell;
+    $darken-value : $color-step;
+    @for $i from $idx-start through $idx-end {
+        li:nth-child(#{$i}){
+            $bg-color : darken($color, $darken-value);
+            $darken-value : $darken-value + $color-step;
+            background-color: $bg-color;
+
+            &:hover:before {
+                padding-top: $cell-height / 2;
+                content: "#{$bg-color}";
+                color: lighten($bg-color,40);
+                font-size: 8px;
+
+            }
+        }
+    }
+}
+
+//color lighten
+@mixin colorLighten($color){
+    $idx-start : 1;
+    $idx-end : $idx-base-color-cell - 1;
+    $lighten-value : $color-step * ($idx-base-color-cell - 1);
+    @for $i from $idx-start through $idx-end {
+        li:nth-child(#{$i}){
+            $bg-color : lighten($color, $lighten-value);
+            $lighten-value : $lighten-value - $color-step;
+            background-color: $bg-color;
+
+            &:hover:before {
+                content: "#{$bg-color}";
+                color: darken($bg-color,40);
+                font-size: 8px;
+                padding: 2px;
+            }
+        }
+    }
+}
+
+
+//style
+ul.color-card {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    height: $cell-height;
+    li{
+        float: left;
+        width: $cell-width;
+        height: $cell-height;
+    }
+}
+
+//card style
+ul.red {
+    @include colorDarken($color-base-red);
+    @include colorLighten($color-base-red);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-red;
+    }
+}
+
+ul.orange  {
+    @include colorDarken($color-base-orange);
+    @include colorLighten($color-base-orange);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-orange;
+    }
+}
+
+ul.yellow  {
+    @include colorDarken($color-base-yellow);
+    @include colorLighten($color-base-yellow);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-yellow;
+    }
+}
+
+ul.green  {
+    @include colorDarken($color-base-green);
+    @include colorLighten($color-base-green);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-green;
+    }
+}
+
+ul.blue  {
+    @include colorDarken($color-base-blue);
+    @include colorLighten($color-base-blue);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-blue;
+    }
+}
+
+ul.purple  {
+    @include colorDarken($color-base-purple);
+    @include colorLighten($color-base-purple);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-purple;
+    }
+}
+
+ul.black  {
+    @include colorDarken($color-base-black);
+    @include colorLighten($color-base-black);
+    li:nth-child(#{$idx-base-color-cell}){
+        background-color: $color-base-black;
+    }
+}
