@@ -6,6 +6,7 @@
 * Day4：完成表单学习100%，网格布局50%(2016/07/30)；
 * Day5：完成网格布局学习100%，控件50%(2016/07/30)；
 * Day6：慕课网课程学习结束(2016/07/31)；
+* Day7：综合实例复习(2016/08/09)；
 
 > [Bootstrap 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/bootstrap)
 
