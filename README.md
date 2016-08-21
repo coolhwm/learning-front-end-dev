@@ -20,6 +20,11 @@
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
+## Javascript 正则表达式
+* Day1: 复习正则表达式的基本概念(2015/08/22)；
+
+> [正则表达式 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/regex)
+
 ## Javascript 面向对象
 * 未开始；
 

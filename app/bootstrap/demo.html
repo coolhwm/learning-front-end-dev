@@ -191,10 +191,23 @@
             </div>
         </div>
     </div>
-
 </div>
-
 <script type="text/javascript" src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>
+<script>
+    $(function(){
+        var trCount = 0;
+        var tdCount = 0;
+        $("table tr").each(function(){
+            console.info("tr-->");
+            trCount++;
+            $(this).children("td").each(function(){
+                tdCount++;
+                console.info("td-->" + $(this).html());
+            });
+        });
+
+    });
+</script>
 </body>
 </html>
