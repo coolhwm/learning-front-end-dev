@@ -22,6 +22,7 @@
 
 ## Javascript 正则表达式
 * Day1: 复习正则表达式的基本概念(2015/08/22)；
+* Day2: 完整正则表达式复习(2015/08/23)；
 
 > [正则表达式 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/regex)
 
