@@ -20,6 +20,12 @@
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
+
+## HTML5
+* Day1: 学习HTML5中新增的属性和标签(2015/08/24)；
+
+> [HTML5 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/html5)
+
 ## Javascript 正则表达式
 * Day1: 复习正则表达式的基本概念(2015/08/22)；
 * Day2: 完整正则表达式复习(2015/08/23)；
