@@ -11,29 +11,32 @@
 > [Bootstrap 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/bootstrap)
 
 ## Sass
-* Day1：了解Sass基本背景(2015/08/01)；
+* Day1：了解Sass基本背景(2016/08/01)；
 * Day2：完成Sass安装，了解基本语法和编译方式(2015/08/02)；
-* Day3：Sass的编译与调试(2015/08/03)；
-* Day4：完成基本语法学习(2015/08/04)；
-* Day5：完成控制语句学习(2015/08/06)；
-* Day6：完成学习(2015/08/07)；
+* Day3：Sass的编译与调试(2016/08/03)；
+* Day4：完成基本语法学习(2016/08/04)；
+* Day5：完成控制语句学习(2016/08/06)；
+* Day6：完成学习(2016/08/07)；
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
+## Javascript 面向对象
+* Day1: 函数定义方式(2016/09/07)；
+
+> [Javascript 面向对象 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/oop)
+
 
 ## HTML5
-* Day1: 学习HTML5中新增的属性和标签(2015/08/24)；
+* Day1: 学习HTML5中新增的属性和标签(2016/08/24)；
 
 > [HTML5 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/html5)
 
 ## Javascript 正则表达式
-* Day1: 复习正则表达式的基本概念(2015/08/22)；
-* Day2: 完整正则表达式复习(2015/08/23)；
+* Day1: 复习正则表达式的基本概念(2016/08/22)；
+* Day2: 完整正则表达式复习(2016/08/23)；
 
 > [正则表达式 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/regex)
 
-## Javascript 面向对象
-* 未开始；
 
 ## AngularJS
 * Day0：基础知识已学习完毕；
