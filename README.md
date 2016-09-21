@@ -22,6 +22,7 @@
 
 ## Javascript 面向对象
 * Day1: 函数定义方式(2016/09/07)；
+* Day2: 对象、属性、原型链(2016/09/21)；
 
 > [Javascript 面向对象 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/oop)
 
