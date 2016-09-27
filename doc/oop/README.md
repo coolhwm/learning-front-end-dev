@@ -1,5 +1,4 @@
 # JavaScript 面向对象 - 学习笔记
-
 ## 1. 函数和作用域
 ### 1.1 基本概念
 - 函数是一段JavaScript代码，被定义一次，可以被调用多次；
@@ -259,3 +258,63 @@ delete user.age;
 console.log(user.age);  //28
 ```
 
+#### 2.3.6 属性标签
+
+**标签：**
+- `writable`：是否可以修改；
+- `enumerable`：是否可以被遍历（影响for in）；
+- `configurable`：是否可以修改标签，是否可以`delete`；
+
+**获取标签：**
+``` javascript
+var desc = Object.getOwnPropertyDescriptor({pro: true}, 'pro');
+```
+
+**创建带标签的属性：**
+- `defineProperty`：定义一个属性，未设置的标签默认为`false`；
+- `defineProperties`：定义多个属性，未设置的标签默认为`false`；
+``` javascript
+var person = {};
+//定义一个属性
+Object.defineProperty(person, "name", {
+    configuable : false,
+    writable : false,
+    enumerable : true,
+    value : "Test"
+});
+//定义多个属性
+Object.defineProperties(person, {
+    title : {enumerable : true, value : "title"},
+    age : {enumerable : false,value : "age"
+    }
+});
+```
+
+### 2.4 对象标签
+- 原型标签：`__proto`；
+- 类型标签：使用`Object.prototype.toString(obj)`间接查看；
+- 是否可扩展标签：使用`Object.isExtensible(obj)`进行查看；
+	- `Object.preventExtensions(obj)`：阻止扩展；
+	- `Object.seal(obj)`：所有对象上的属性的`configurable`设置为`false`；
+	- `Object.freeze(obj)`：所有对象上的所有标签设置为`false`；
+
+### 2.5 序列化
+
+**JSON：**
+``` javascript
+//对象转换为JSON
+var obj = {x:1, y : true, z :[1,2,3]};
+var json = JSON.stringify(obj);
+
+//JSON解析为对象
+var obj = JSON.parse(json);
+console.info(obj.x);
+```
+**toString：**
+``` javascript
+//覆盖默认的toString方法
+var obj = JSON.parse(json);
+obj.toString = function () {
+    return this.x + 1000000;
+}
+```
