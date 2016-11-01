@@ -1,4 +1,5 @@
 # JavaScript 面向对象 - 学习笔记
+
 ## 1. 函数和作用域
 ### 1.1 基本概念
 - 函数是一段JavaScript代码，被定义一次，可以被调用多次；
@@ -291,7 +292,7 @@ Object.defineProperties(person, {
 ```
 
 ### 2.4 对象标签
-- 原型标签：`__proto`；
+- 原型标签：`__proto__`；
 - 类型标签：使用`Object.prototype.toString(obj)`间接查看；
 - 是否可扩展标签：使用`Object.isExtensible(obj)`进行查看；
 	- `Object.preventExtensions(obj)`：阻止扩展；
@@ -318,3 +319,77 @@ obj.toString = function () {
     return this.x + 1000000;
 }
 ```
+
+## 3. 数组
+- 数组是值的有序集合；
+- 每个值叫做元素，每个元素在数组中有数字位置的编号；
+- JS中的数组是弱类型的，数组中可以含有不同类型的元素；
+
+### 3.1 创建数组
+- 可以使用字面量或者`Array`构造器的方式创建数组，二者基本等价；
+- 数组的元素可以是各种数据类型混合的；
+- 数组可以用连续逗号留空的方式，空位为`undifined`；
+- 数组允许在末尾留一个多余的逗号；
+- 数组是动态的，不需要指定数组的大小；
+- 数组大小为`2^23 - 1`；
+``` javascript
+//字面量
+var BAT = ['B', 'A', 'T'];
+var student = [{name:"jack", age : 5}, {name:"tom", age : 5}]
+//Array构造器
+var arr = new Array();
+```
+### 3.2 数组读写操作
+
+``` javascript
+//动态创建数组元素
+BAT[3] = 'S'
+//通过下标访问数组
+var B = BAT[0];
+//数组长度
+var l = BAT.length;
+//删除数组元素（undifined）
+delete BAT[0];
+
+//尾部增加元素
+arr.push('1');
+//头部增加元素
+arr.unshift("0");
+//尾部删除元素
+arr.pop();
+//头部删除元素
+arr.shift();
+```
+
+### 3.3 数组迭代
+``` javascript
+for(var i = 0; i < arr.length; i++){
+    console.info(arr[i]);
+}
+
+for(i in arr){
+    console.info(arr[i]);
+}
+```
+
+
+### 3.4 二维数组
+- 数组的定义可以嵌套，即形成二维数组；
+- 数组本质也是对象，可以嵌套多层；
+```
+var arr = [[0.1], [2,3], [4.5]];
+var i = 0, j = 0;
+var row;
+for(;i < arr.length; i++){
+    row = arr[i];
+    console.log("row" + i);
+    for(j = 0; j < row.length; j++){
+        console.log(row[j]);
+    }
+}
+```
+
+### 3.5 稀疏数组
+- 稀疏数组并不含从0开始的连续索引；
+- 可以通过`length`属性、`Array(100)`、`[,,]`创建稀疏数组；
+- 遍历系数数组需要使用`in`操作符、或做好`undifined`判断；
