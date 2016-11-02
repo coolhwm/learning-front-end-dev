@@ -1,4 +1,4 @@
-# JavaScript 面向对象 - 学习笔记
+# JavaScript 进阶 - 学习笔记
 
 ## 1. 函数和作用域
 ### 1.1 基本概念
@@ -376,7 +376,7 @@ for(i in arr){
 ### 3.4 二维数组
 - 数组的定义可以嵌套，即形成二维数组；
 - 数组本质也是对象，可以嵌套多层；
-```
+```javascript
 var arr = [[0.1], [2,3], [4.5]];
 var i = 0, j = 0;
 var row;
@@ -393,3 +393,42 @@ for(;i < arr.length; i++){
 - 稀疏数组并不含从0开始的连续索引；
 - 可以通过`length`属性、`Array(100)`、`[,,]`创建稀疏数组；
 - 遍历系数数组需要使用`in`操作符、或做好`undifined`判断；
+
+### 3.7 数组方法
+
+**数组对象原型：**
+``` javascript
+Array.prototype
+```
+**关于版本：**
+- ES5提供了更多的方法支持；
+- IE9浏览器以上支持ES5；
+
+** 方法概要：**
+
+``` javascript
+//join：数组转换成字符串，可以指定分隔符
+var arr1 = [1,2,3]
+console.info(arr1.join("|"));       //1|2|3
+
+//reverse：数组逆序（影响原数组）
+console.info(arr1.reverse());       //[ 3, 2, 1 ]
+
+//sort：按字母排序（不是大小）
+var arr2 = [11,13, 23, 2, 33];
+console.info(arr2.sort());          //[11,13,2,23,33]
+
+console.info(arr2.sort(function (a, b) {
+    return a - b;
+}));    //[ 2, 11, 13, 23, 33 ]
+
+//conact：合并数组
+console.info(arr1.concat(arr2));    //[3,2,1,2,11,13,23,33]
+
+//slice：切片（左闭右开）/负索引为倒数
+console.info(arr2.slice(1,3));      //[11,13]
+
+//splice：删除/添加元素（影响原数组）
+arr2.splice(1,3, 'a', 'b');         //[11,13]
+console.info(arr2);                 //[2,'a','b',33]
+```

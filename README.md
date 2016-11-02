@@ -20,12 +20,12 @@
 
 > [Sass 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/sass)
 
-## Javascript 面向对象
+## Javascript 进阶
 * Day1: 函数定义方式(2016/09/07)；
 * Day2: 对象、属性、原型链(2016/09/21)；
-* Day3: 数组(2016/11/2)；
+* Day3: 数组及数组方法(2016/11/3)；
 
-> [Javascript 面向对象 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/oop)
+> [Javascript 进阶 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/oop)
 
 
 ## HTML5

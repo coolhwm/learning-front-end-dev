@@ -41,6 +41,7 @@ for(i in arr){
 
 
 
+/*
 var arr = [[0.1], [2,3], [4.5]];
 
 var i = 0, j = 0;
@@ -51,4 +52,31 @@ for(;i < arr.length; i++){
     for(j = 0; j < row.length; j++){
         console.log(row[j]);
     }
-}
+}*/
+
+
+
+//join：数组转换成字符串，可以指定分隔符
+var arr1 = [1,2,3]
+console.info(arr1.join("|"));       //1|2|3
+
+//reverse：数组逆序（影响原数组）
+console.info(arr1.reverse());       //[ 3, 2, 1 ]
+
+//sort：按字母排序（不是大小）
+var arr2 = [11,13, 23, 2, 33];
+console.info(arr2.sort());          //[11,13,2,23,33]
+
+console.info(arr2.sort(function (a, b) {
+    return a - b;
+}));    //[ 2, 11, 13, 23, 33 ]
+
+//conact：合并数组
+console.info(arr1.concat(arr2));    //[3,2,1,2,11,13,23,33]
+
+//slice：切片（左闭右开）/负索引为倒数
+console.info(arr2.slice(1,3));      //[11,13]
+
+//splice：删除/添加元素（影响原数组）
+arr2.splice(1,3, 'a', 'b');         //[11,13]
+console.info(arr2);                 //[2,'a','b',33]
