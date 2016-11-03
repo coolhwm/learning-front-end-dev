@@ -1,4 +1,4 @@
-# JavaScript 进阶 - 学习笔记
+# JavaScript 面向对象 - 学习笔记
 
 ## 1. 函数和作用域
 ### 1.1 基本概念
@@ -431,4 +431,49 @@ console.info(arr2.slice(1,3));      //[11,13]
 //splice：删除/添加元素（影响原数组）
 arr2.splice(1,3, 'a', 'b');         //[11,13]
 console.info(arr2);                 //[2,'a','b',33]
+```
+ES5以上版本提供的方法：
+``` javascript
+//forEach 数组遍历
+var arr = [1,2,3,4,5,6];
+arr.forEach(function (x, index, a) {
+    console.info(x);
+});
+
+//map 数组映射
+arr = arr.map(function (x) {
+    return x + 10;
+});
+console.info(arr);  //[11,12,13,14,15,16]
+
+//filter 数组过滤
+arr = arr.filter(function (x, index) {
+    return x > 13;
+});
+console.info(arr);  //[14,15,16]
+
+//every 数组判断（每一个）
+var b1 = arr.every(function (x) {
+    return x > 10;
+});
+console.info(b1);   //true
+
+// some 数组判断（有一个）
+var b2 = arr.some(function (x) {
+    return x === 14;
+});
+console.info(b2);   //true
+
+//reduce/reduceRight(反向)
+var max = arr.reduce(function (x, y) {
+    return x > y ? x : y;
+}, 0);
+console.info(max);  //16
+
+//indexOf 数组检索
+console.info(arr.indexOf(16));
+
+//isArray 数组判断
+console.info(Array.isArray([]));
+console.info([] instanceof  Array);
 ```

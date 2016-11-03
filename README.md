@@ -23,7 +23,7 @@
 ## Javascript 进阶
 * Day1: 函数定义方式(2016/09/07)；
 * Day2: 对象、属性、原型链(2016/09/21)；
-* Day3: 数组及数组方法(2016/11/3)；
+* Day3: 数组及数组方法(2016/11/4)；
 
 > [Javascript 进阶 学习笔记](https://github.com/coolhwm/learning-front-end-dev/tree/master/doc/oop)
 
