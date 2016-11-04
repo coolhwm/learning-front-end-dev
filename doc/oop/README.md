@@ -64,7 +64,9 @@ var add_constructor = Function("a", "b", "return a + b");
 - 全局的`this`：在浏览器中为`window`对象；
 - 一般函数的`this`：还是为`window`对象，在node.js中为`global object`；在严格模式中为`undifined`；
 - 作为对象方法函数的`this`：指向方法所属的对象；
-- 构造器中的`this`：指向空的对象；
+- 构造器中的`this`：指向空的对象（没写return语句，this作为返回值）；若果有返回值，则return的对象为返回值；
+- `object.call(this, args)`和`apply`的第一个参数为`this`，可以指定`this`的对象，可以调用一些无法直接调用的方法；
+- `f.bind(this)`：可以给一个方法绑定`this`
 - 对象原型链上的`this`;
 - `get/set`方法；
 
@@ -324,6 +326,7 @@ obj.toString = function () {
 - 数组是值的有序集合；
 - 每个值叫做元素，每个元素在数组中有数字位置的编号；
 - JS中的数组是弱类型的，数组中可以含有不同类型的元素；
+- 与一般对象对比：都是可以继承、数组也是对象、可以当做对象进行访问、可以使用`Array.prototype`上的大量数组操作方法；
 
 ### 3.1 创建数组
 - 可以使用字面量或者`Array`构造器的方式创建数组，二者基本等价；
